@@ -36,16 +36,9 @@ fi
 # retrieve all files in staging area that are added, modified or renamed
 # but no deletions etc
 FILES=$(git diff-index --name-only --cached --diff-filter=ACMR $against -- )
-
 if [ "$FILES" == "" ]; then
     exit 0
 fi
-
-# create temporary copy of staging area
-if [ -e $TMP_STAGING ]; then
-    rm -rf $TMP_STAGING
-fi
-mkdir $TMP_STAGING
 
 # match files against whitelist
 FILES_TO_CHECK=""
@@ -69,6 +62,12 @@ if [ "$PHPCS_IGNORE" != "" ]; then
 else
     IGNORE=""
 fi
+
+# create temporary copy of staging area
+if [ -e $TMP_STAGING ]; then
+    rm -rf $TMP_STAGING
+fi
+mkdir $TMP_STAGING
 
 # Copy contents of staged version of files to temporary staging area
 # because we only want the staged version that will be commited and not
