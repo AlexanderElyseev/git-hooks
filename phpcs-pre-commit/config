@@ -1,13 +1,20 @@
-# path to phpcs "binary"
-PHPCS_BIN=/usr/bin/phpcs
+# Absolute path to repository.
+REPOSITORY_PATH='D:/Projects/ProfClub/cms.git/'
 
-# the coding standard, you can also specify a path to your own standard here 
+# Path to php "binary".
+PHP_BIN="/c/Program Files (x86)/PHP-5.3.6/php.exe" 
+
+# Path to phpcs executable file.
+# For Windows systems, launch phpcs.php over PHP interpretor.
+PHPCS_BIN="$PHP_BIN C:\Program Files (x86)\PHP-5.3.6\pyrus\php\phpcs.php"
+
+# The coding standard, you can also specify a path to your own standard here.
 # e. g. /path/to/my/standard/dir/
-PHPCS_CODING_STANDARD=PEAR
+PHPCS_CODING_STANDARD=$REPOSITORY_PATH"doc\settings\CodingStandard\CMS"
 
-# comma-separated list of file patterns being ignored
-PHPCS_IGNORE=
+# Comma-separated list of file patterns being ignored.
+PHPCS_IGNORE=*\\\\data\\\\propel\\\\build\\\\classes\\\\*
 
-# egrep compatible pattern of  files to be checked
-PHPCS_FILE_PATTERN="\.(php|phtml)$"
+# Egrep compatible pattern of  files to be checked.
+PHPCS_FILE_PATTERN="\.(php|phtml|js|css)$"
 
